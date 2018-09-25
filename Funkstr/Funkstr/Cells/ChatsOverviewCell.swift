@@ -17,6 +17,7 @@ class ChatsOverviewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var statusView: DotView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -151,7 +151,7 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
         print("received message Stream")
         print(message)
         let newChatMessage  = ChatMessage()
-        newChatMessage.from = (message.to?.bare)!
+        newChatMessage.from = (message.from?.bare)!
         newChatMessage.to = self.currentUserName!
         newChatMessage.message = message.body!
         newChatMessage.isOutgoing = false

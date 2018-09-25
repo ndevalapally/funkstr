@@ -50,7 +50,7 @@ class TGBaseMessageCellLayout: NSObject, NOCChatItemCellLayout {
         self.width = width
         
         super.init()
-        self.avatarImage = #imageLiteral(resourceName: "TGUserInfo") //self.isOutgoing ? Style.outgoingAvatarImage : Style.incomingAvatarImage
+        self.avatarImage = self.isOutgoing ? Style.outgoingAvatarImage : Style.incomingAvatarImage
 
     }
     
@@ -60,8 +60,8 @@ class TGBaseMessageCellLayout: NSObject, NOCChatItemCellLayout {
     }
     
     struct Style {
-        static let outgoingAvatarImage = #imageLiteral(resourceName: "pic-test-1") // UIImage(named: "MMAvatarOutgoing")!
-        static let incomingAvatarImage = #imageLiteral(resourceName: "pic-test-2") // UIImage(named: "MMAvatarIncoming")!
+        static let outgoingAvatarImage = #imageLiteral(resourceName: "outgoing") // UIImage(named: "MMAvatarOutgoing")!
+        static let incomingAvatarImage = #imageLiteral(resourceName: "incoming") // UIImage(named: "MMAvatarIncoming")!
     }
     
 }

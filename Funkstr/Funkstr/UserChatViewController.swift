@@ -20,7 +20,7 @@ class UserChatViewController: NOCChatViewController ,TGChatInputTextPanelDelegat
     var completeResults: Results<ChatMessage>?
     
     var titleView = TGTitleView()
-    var avatarButton = TGAvatarButton()
+//    var avatarButton = TGAvatarButton()
     
     var fromUser: ChatUser?
     
@@ -28,17 +28,18 @@ class UserChatViewController: NOCChatViewController ,TGChatInputTextPanelDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        avatarButton.setImage(#imageLiteral(resourceName: "outgoing"), for: .normal)
         titleView.title = fromUser?.name
         
         
         self.navigationItem.titleView = titleView
         
-        let spacerItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        spacerItem.width = -12
-        
-        let rightItem = UIBarButtonItem(customView: avatarButton)
-        
-        navigationItem.rightBarButtonItems = [spacerItem, rightItem]
+//        let spacerItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+//        spacerItem.width = -12
+//
+//        let rightItem = UIBarButtonItem(customView: avatarButton)
+//
+//        navigationItem.rightBarButtonItems = [spacerItem, rightItem]
 
         // Do any additional setup after loading the view.
         

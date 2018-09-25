@@ -35,7 +35,7 @@ class ChatMessage: Object,NOCChatItem {
     @objc dynamic  var date: Date = Date()
     
     var deliveryStatus:MessageDeliveryStatus{
-        return .Delivering
+        return .Delivered
     }
     
     

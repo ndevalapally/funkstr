@@ -150,7 +150,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-Sp-eEK" customClass="DotView" customModule="Funkstr" customModuleProvider="target">
-                                                    <rect key="frame" x="361" y="36" width="10" height="10"/>
+                                                    <rect key="frame" x="355" y="50" width="10" height="10"/>
                                                     <color key="backgroundColor" red="0.1019607843" green="0.5450980392" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="i0F-Gg-Aah"/>
@@ -161,15 +161,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="iB3-VV-KIs" secondAttribute="trailing" constant="4" id="2gS-ho-0Ph"/>
                                                 <constraint firstItem="iB3-VV-KIs" firstAttribute="top" secondItem="Kjd-hr-aOk" secondAttribute="top" id="5iE-j8-Nwi"/>
+                                                <constraint firstItem="yWM-Sp-eEK" firstAttribute="centerY" secondItem="9JS-F7-tB1" secondAttribute="centerY" id="BEK-Mj-ShA"/>
                                                 <constraint firstItem="Kjd-hr-aOk" firstAttribute="leading" secondItem="3jh-Dy-6DI" secondAttribute="trailing" constant="8" id="Dyf-yc-f3U"/>
                                                 <constraint firstItem="iB3-VV-KIs" firstAttribute="leading" secondItem="Kjd-hr-aOk" secondAttribute="trailing" constant="15" id="Llw-1d-w02"/>
-                                                <constraint firstItem="yWM-Sp-eEK" firstAttribute="top" secondItem="iB3-VV-KIs" secondAttribute="bottom" constant="4" id="Oos-7Z-NBG"/>
                                                 <constraint firstItem="3jh-Dy-6DI" firstAttribute="centerY" secondItem="oHc-f0-RB1" secondAttribute="centerY" id="P6Z-ZM-X5J"/>
                                                 <constraint firstAttribute="trailing" secondItem="9JS-F7-tB1" secondAttribute="trailing" constant="10" id="ShO-H4-pdS"/>
                                                 <constraint firstItem="9JS-F7-tB1" firstAttribute="leading" secondItem="3jh-Dy-6DI" secondAttribute="trailing" constant="8" id="WzN-L0-u8W"/>
                                                 <constraint firstItem="Kjd-hr-aOk" firstAttribute="top" secondItem="3jh-Dy-6DI" secondAttribute="top" id="YGP-nE-fhw"/>
                                                 <constraint firstItem="9JS-F7-tB1" firstAttribute="top" secondItem="Kjd-hr-aOk" secondAttribute="bottom" constant="8" id="aFm-iZ-jti"/>
-                                                <constraint firstAttribute="trailing" secondItem="yWM-Sp-eEK" secondAttribute="trailing" constant="4" id="ezx-G6-03k"/>
+                                                <constraint firstAttribute="trailing" secondItem="yWM-Sp-eEK" secondAttribute="trailing" constant="10" id="ezx-G6-03k"/>
                                                 <constraint firstItem="3jh-Dy-6DI" firstAttribute="leading" secondItem="oHc-f0-RB1" secondAttribute="leading" constant="15" id="oRt-OH-KYt"/>
                                             </constraints>
                                         </tableViewCellContentView>

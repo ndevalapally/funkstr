@@ -26,11 +26,15 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     // Events delegation
     var onAuthenticate:((_ error:Error?)->())?
     
+    var logoutCallback: (()->())?
+    
     
     private override init() {
         xmppStream.hostName = Configuration.XMPPServer.host
         xmppStream.hostPort = Configuration.XMPPServer.port
         xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage)
+        super.init()
+        xmppStream.addDelegate(self, delegateQueue: DispatchQueue.main)
     
     }
     
@@ -57,8 +61,6 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
         currentPassword = pwd
         
         xmppStream.myJID = XMPPJID(string: currentUserName!)
-       
-        xmppStream.addDelegate(self, delegateQueue: DispatchQueue.main)
      
         if xmppStream.isDisconnected{
             try!   xmppStream.connect(withTimeout: XMPPStreamTimeoutNone)
@@ -80,6 +82,15 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
         xmppStream.send(msg)
     }
     
+    
+    /// Disconnect from stream
+    func logoutUser(callback:@escaping ()->()){
+        if(xmppStream.isConnected){
+        xmppStream.disconnect()
+            logoutCallback = callback
+        }
+    }
+    
     //MARK: XMPPStreamDelegate Methods
     
     func xmppStreamDidConnect(_ sender: XMPPStream) {
@@ -87,6 +98,12 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
         try! sender.authenticate(withPassword: self.currentPassword!)
         
     }
+    
+    func xmppStreamDidDisconnect(_ sender: XMPPStream, withError error: Error?) {
+        print("Stream disconnected")
+        logoutCallback?()
+    }
+    
     func xmppStreamDidAuthenticate(_ sender: XMPPStream) {
         print("Authenticated")
         //var xmppRoster: XMPPRoster

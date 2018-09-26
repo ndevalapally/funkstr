@@ -32,6 +32,16 @@ class ChatsOverviewCell: UITableViewCell {
     func configureFor(user:ChatUser){
         userLabel.text = user.name
         messageLabel.text = user.status
+        if(user.status == "available"){
+            statusView.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        }
+        else if (user.status == "unavailable"){
+            statusView.backgroundColor = #colorLiteral(red: 0.5882352941, green: 0.5882352941, blue: 0.5882352941, alpha: 1)
+        }
+        else{
+            statusView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        }
+        userImage.image = #imageLiteral(resourceName: "5")
         
     }
 

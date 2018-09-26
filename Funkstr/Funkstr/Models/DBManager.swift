@@ -81,6 +81,11 @@ class DBManager: NSObject {
     }
     
     
+    func fetchFriends()->Results<ChatUser>{
+        let result = realmObject.objects(ChatUser.self).filter("jabberId != %@", XMPPHandler.shared.currentUserName!)
+        return result
+    }
+    
     
 
 }

@@ -22,7 +22,7 @@ class ChatsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let result = DBManager.shared.fetch(type: ChatUser.self)
+        let result = DBManager.shared.fetchFriends()
        changeObserver = result.observe { [weak self] (changes:RealmCollectionChange) in
             switch changes{
             case .initial(let initialValues):
@@ -36,6 +36,9 @@ class ChatsViewController: UIViewController {
                 print("error")
             }
         }
+        
+        let logoutBtn = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.rightBarButtonItems = [logoutBtn]
     
 //        addAccounts()
         
@@ -51,6 +54,14 @@ class ChatsViewController: UIViewController {
         for singleName in names{
             XMPPHandler.shared.addUser(userName: singleName+"@"+Configuration.XMPPServer.host, nickName: singleName)
         }
+    }
+    
+    @objc func logout(){
+        XMPPHandler.shared.logoutUser(callback: {
+            print("got the information")
+            self.dismiss(animated: true, completion: nil)
+            
+        })
     }
     
 

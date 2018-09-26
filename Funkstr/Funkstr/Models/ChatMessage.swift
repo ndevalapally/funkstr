@@ -25,13 +25,19 @@ class ChatMessage: Object,NOCChatItem {
 
      /// Is the message read?
     @objc dynamic  var isRead:Bool = false
+    
     /// Message sent from
     @objc dynamic  var from:String = ""
+    
     /// Message sent to 
     @objc dynamic  var to:String = ""
     
+    
+    /// Delivery status stored in the database
     @objc dynamic var deliverStatus: String = ""
     
+    
+    /// Date at which the message was delivered
     @objc dynamic  var date: Date = Date()
     
     var deliveryStatus:MessageDeliveryStatus{
@@ -46,14 +52,22 @@ class ChatMessage: Object,NOCChatItem {
     return "messageId"
     }
     
+    
+    /// Ignored properties not stored in database
+    ///
+    /// - Returns: array of ignored propertu names
     override static func ignoredProperties() -> [String] {
         return ["deliveryStatus"]
     }
     
+    //MARK: NoChatItem compliance methods
+
+    /// Unique Identifier of the message
     public func uniqueIdentifier() -> String {
         return self.messageId;
     }
     
+    /// Type of message. Right now defaulted to text
     public func type() -> String {
         return "Text"
     }

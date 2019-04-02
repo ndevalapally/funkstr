@@ -61,6 +61,16 @@ class DBManager: NSObject {
     }
     
     
+    /// Fetches a single message based on ID
+    ///
+    /// - Parameter messageId: messageId unique to the message
+    /// - Returns: ChatMessage Optional object
+    func fetchMessage(with messageId:String)->ChatMessage?{
+        
+       return realmObject.object(ofType: ChatMessage.self, forPrimaryKey: messageId)
+    }
+    
+    
     /// Fetches the chats between current user and the other user
     ///
     /// - Parameter user: userId of the other user

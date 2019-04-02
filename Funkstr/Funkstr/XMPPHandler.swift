@@ -8,6 +8,7 @@
 
 import UIKit
 import XMPPFramework
+import DCXMPP
 
 /// Singleton class to handle all the XMPP Communication
 class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
@@ -16,10 +17,11 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     /// Singleton object
     static let shared = XMPPHandler()
     
-    let xmppRosterStorage = XMPPRosterCoreDataStorage()
-    var xmppRoster: XMPPRoster?
-    let xmppStream = XMPPStream()
-    
+    //let xmppRosterStorage = XMPPRosterCoreDataStorage()
+    //var xmppRoster: XMPPRoster?
+   // let xmppStream = XMPPStream()
+    let boschStream: DCXMPP = DCXMPP.manager()
+
     var currentUserName: String?
     var currentPassword: String?
     
@@ -30,12 +32,14 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     
     
     private override init() {
-        xmppStream.hostName = Configuration.XMPPServer.host
-        xmppStream.hostPort = Configuration.XMPPServer.port
-        xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage)
+//        xmppStream.hostName = Configuration.XMPPServer.host
+//        xmppStream.hostPort = Configuration.XMPPServer.port
+//        xmppStream.bin
+//        xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage)
+
         super.init()
-        xmppStream.addDelegate(self, delegateQueue: DispatchQueue.main)
-    
+//        xmppStream.addDelegate(self, delegateQueue: DispatchQueue.main)
+        boschStream.delegate = self
     }
     
     
@@ -46,7 +50,7 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     ///   - nickName: Nick Name to be put up
     func addUser(userName:String,nickName:String){
         if let userObj = XMPPJID(string: userName){
-            xmppRoster?.addUser(userObj, withNickname: nickName)
+//            xmppRoster?.addUser(userObj, withNickname: nickName)
         }
         
     }
@@ -59,12 +63,13 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     func startStream(userName:String, pwd:String){
         currentUserName = userName
         currentPassword = pwd
-        
-        xmppStream.myJID = XMPPJID(string: currentUserName!)
-     
-        if xmppStream.isDisconnected{
-            try!   xmppStream.connect(withTimeout: XMPPStreamTimeoutNone)
-        }
+        boschStream.connect(userName, password: pwd, host: Configuration.XMPPServer.host, boshURL: Configuration.XMPPServer.bindingUrl)
+//        boschStream.connect(userName, rid: <#T##Int64#>, sid: <#T##String!#>, host: <#T##String!#>, boshURL: <#T##String!#>)
+//        xmppStream.myJID = XMPPJID(string: currentUserName!)
+
+//        if xmppStream.isDisconnected{
+//            try!   xmppStream.connect(withTimeout: XMPPStreamTimeoutNone)
+//        }
     }
     
     
@@ -75,20 +80,34 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     ///   - message: Message text to be sent
     func sendMessage(userName:String, message:String){
         
+        // Create the new chat message with status Delivering
+        let newChatMessage  = ChatMessage()
+        newChatMessage.from = self.currentUserName!
+        newChatMessage.to =  userName
+        newChatMessage.deliverStatus = "Delivering"
+        newChatMessage.message = message
+        // Insert or update in realm
+        DBManager.shared.add(object: newChatMessage)
+        
+        // Send the message
         let senderJID = XMPPJID(string: userName) //XMPPJID.jidWithString(userName)
         let msg = XMPPMessage(type: "chat", to: senderJID)
         msg.addBody(message)
-        msg.addOriginId("1234")
-        xmppStream.send(msg)
+        // Put up a unique ID for the chat message with the same Unique ID.
+        msg.addOriginId(newChatMessage.messageId)
+//        xmppStream.send(msg)
+
+        
+       
     }
     
     
     /// Disconnect from stream
     func logoutUser(callback:@escaping ()->()){
-        if(xmppStream.isConnected){
-        xmppStream.disconnect()
-            logoutCallback = callback
-        }
+//        if(xmppStream.isConnected){
+//        xmppStream.disconnect()
+//            logoutCallback = callback
+//        }
     }
     
     //MARK: XMPPStreamDelegate Methods
@@ -107,12 +126,12 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     func xmppStreamDidAuthenticate(_ sender: XMPPStream) {
         print("Authenticated")
         //var xmppRoster: XMPPRoster
-        xmppRoster?.activate(xmppStream)
-        xmppRoster?.addDelegate(self, delegateQueue: DispatchQueue.main)
-        let presense = XMPPPresence() // XMPPPresence(type: "probe")
-        xmppStream.send(presense)
-        xmppRoster?.fetch()
-        
+//        xmppRoster?.activate(xmppStream)
+//        xmppRoster?.addDelegate(self, delegateQueue: DispatchQueue.main)
+//        let presense = XMPPPresence() // XMPPPresence(type: "probe")
+//        xmppStream.send(presense)
+//        xmppRoster?.fetch()
+
         self.onAuthenticate?(nil)
         
     }
@@ -122,8 +141,8 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
         print(presence)
         if  let presenceType = presence.type{
             if presenceType == "subscribe"{
-                xmppRoster?.subscribePresence(toUser: presence.from!)
-                xmppRoster?.acceptPresenceSubscriptionRequest(from: presence.from!, andAddToRoster: true)
+//                xmppRoster?.subscribePresence(toUser: presence.from!)
+//                xmppRoster?.acceptPresenceSubscriptionRequest(from: presence.from!, andAddToRoster: true)
                 // Probably a friend request
             }
             else {
@@ -155,11 +174,18 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     func xmppStream(_ sender: XMPPStream, didSend message: XMPPMessage) {
         print("Did send message")
         print(message)
-        let newChatMessage  = ChatMessage()
-        newChatMessage.from = self.currentUserName!
-        newChatMessage.to = (message.to?.bare)!
-        newChatMessage.message = message.body!
-        DBManager.shared.add(object: newChatMessage)
+        
+        // Dont execute if there is no originId
+        guard let originId = message.originId else {return}
+        // Just change the status of the same message.
+  
+        if let existingMessage = DBManager.shared.fetchMessage(with: originId){
+            // Make an unmanaged object out of existing one
+            let unmanagedObject = ChatMessage(value:existingMessage)
+            unmanagedObject.deliverStatus = "Delivered"
+            DBManager.shared.add(object: unmanagedObject)
+            
+        }
     }
     func xmppStream(_ sender: XMPPStream, didFailToSend message: XMPPMessage, error: Error) {
         print("Failed to send message")
@@ -198,7 +224,77 @@ class XMPPHandler: NSObject, XMPPStreamDelegate,XMPPRosterDelegate {
     func xmppRosterDidEndPopulating(_ sender: XMPPRoster) {
         print("Finished populating")
     }
+
     
-   
-    
+}
+
+extension XMPPHandler: DCXMPPDelegate {
+    func didReceiveBookmarks() {
+        print("Received bookmarks")
+    }
+
+    func didReceiveMessage(_ message: String!, from user: DCXMPPUser!, attributes: [AnyHashable : Any]! = [:]) {
+        print("Did receive message")
+    }
+
+    func didReceiveGroupMessage(_ message: String!, group: DCXMPPGroup!, from user: DCXMPPUser!, attributes: [AnyHashable : Any]! = [:]) {
+        print("did receive group message")
+    }
+
+    func didReceiveGroupCarbon(_ message: String!, group: DCXMPPGroup!, from user: DCXMPPUser!, attributes: [AnyHashable : Any]! = [:]) {
+        print("did receive group carbon")
+    }
+
+    func didReceive(_ state: DCTypingState, from user: DCXMPPUser!) {
+        print("Did receive typing state")
+    }
+
+    func didReceiveGroupTypingState(_ state: DCTypingState, group: DCXMPPGroup!, from user: DCXMPPUser!) {
+        print("Did receive group typing state")
+    }
+
+    func userDidJoin(_ group: DCXMPPGroup!, user: DCXMPPUser!) {
+        print("user did join")
+    }
+
+    func userDidLeave(_ group: DCXMPPGroup!, user: DCXMPPUser!) {
+        print("user did leave")
+    }
+
+    func didUpdateVCard(_ user: DCXMPPUser!) {
+        print("User did update vCard")
+    }
+
+    func didUpdatePresence(_ user: DCXMPPUser!) {
+        print(#function)
+    }
+
+    func didReceiveBuddyRequest(_ user: DCXMPPUser!) {
+        print(#function)
+    }
+
+    func buddyDidAccept(_ user: DCXMPPUser!) {
+        print(#function)
+    }
+
+    func buddyDidRemove(_ user: DCXMPPUser!) {
+        print(#function)
+    }
+
+    func didReceiveGroupInvite(_ group: DCXMPPGroup!, from user: DCXMPPUser!) {
+        print(#function)
+    }
+
+
+    func didXMPPConnect() {
+        print(#function)
+    }
+
+    func didFailXMPPLogin() {
+        print(#function)
+    }
+
+    func didReceiveRoster(_ users: [Any]!) {
+        print(#function)
+    }
 }

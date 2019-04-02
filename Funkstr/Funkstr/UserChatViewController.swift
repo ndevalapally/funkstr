@@ -53,8 +53,11 @@ class UserChatViewController: NOCChatViewController ,TGChatInputTextPanelDelegat
                 self?.addMessages(coll, scrollToBottom: true, animated: true)
             case .update(let final, deletions: let deletions, insertions: let insertions, modifications: let modifications):
                 print("Changes")
-                let additions = insertions.map({ChatMessage(value: final[$0])})
+                let additions = insertions.map({final[$0]})
                  self?.addMessages(additions, scrollToBottom: true, animated: true)
+//                let modifiedObjects = modifications.map({final[$0]})
+                
+                // update the UI for modified ones
             case .error(let err):
                 print("error")
                 

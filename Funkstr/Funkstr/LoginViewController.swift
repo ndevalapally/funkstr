@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             else{
-                let userIdFull = username+"@"+Configuration.XMPPServer.host
+                let userIdFull = username // "test1" //username+"@"+Configuration.XMPPServer.host
                 XMPPHandler.shared.startStream(userName: userIdFull, pwd: pwd)
                 XMPPHandler.shared.onAuthenticate = {(error) -> Void in
                       self.performSegue(withIdentifier: "chatSegue", sender: nil)

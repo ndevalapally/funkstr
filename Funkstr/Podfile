@@ -14,4 +14,5 @@ target 'Funkstr' do
   # pod 'ChattoAdditions', '= 3.3.1' # if you want to use the cells or the input component
   pod 'YYText'
   pod 'HPGrowingTextView'
+  pod 'XMLKit'
 end

@@ -17,6 +17,21 @@
 		D81180A721591A22006ECA1F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81180A621591A22006ECA1F /* DBManager.swift */; };
 		D81180AA2159FC64006ECA1F /* ChatsOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81180A92159FC64006ECA1F /* ChatsOverviewCell.swift */; };
 		D81180DF215A3EA3006ECA1F /* UserChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81180DE215A3EA3006ECA1F /* UserChatViewController.swift */; };
+		D85CE413225341C700B70520 /* DCXMPP.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE411225341C700B70520 /* DCXMPP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE416225341C700B70520 /* DCXMPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85CE40F225341C600B70520 /* DCXMPP.framework */; };
+		D85CE417225341C700B70520 /* DCXMPP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D85CE40F225341C600B70520 /* DCXMPP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D85CE4232253421400B70520 /* DCXMPP.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE41C2253421300B70520 /* DCXMPP.m */; };
+		D85CE4242253421400B70520 /* BoshRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE41D2253421300B70520 /* BoshRequest.m */; };
+		D85CE4252253421400B70520 /* BoshRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE41E2253421300B70520 /* BoshRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE4262253421400B70520 /* NSData+base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE41F2253421400B70520 /* NSData+base64.m */; };
+		D85CE4272253421400B70520 /* DCXMPPUser.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE4202253421400B70520 /* DCXMPPUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE4282253421400B70520 /* NSData+base64.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE4212253421400B70520 /* NSData+base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE4292253421400B70520 /* DCXMPPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE4222253421400B70520 /* DCXMPPUser.m */; };
+		D85CE42E2253426D00B70520 /* XMLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE42A2253426C00B70520 /* XMLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE42F2253426D00B70520 /* XMLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE42B2253426D00B70520 /* XMLKit.m */; };
+		D85CE4302253426D00B70520 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE42C2253426D00B70520 /* GTMNSString+HTML.m */; };
+		D85CE4312253426D00B70520 /* GTMNSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = D85CE42D2253426D00B70520 /* GTMNSString+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D85CE4352253824900B70520 /* Sampler.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CE4342253824900B70520 /* Sampler.m */; };
 		D88EC7BB2158C3CA0079E991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88EC7BA2158C3CA0079E991 /* AppDelegate.swift */; };
 		D88EC7BD2158C3CA0079E991 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88EC7BC2158C3CA0079E991 /* ViewController.swift */; };
 		D88EC7C02158C3CA0079E991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88EC7BE2158C3CA0079E991 /* Main.storyboard */; };
@@ -41,6 +56,30 @@
 		D8ACDE29215A83DB009CCD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACDE28215A83DB009CCD2F /* DotView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D85CE414225341C700B70520 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D88EC7AF2158C3CA0079E991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D85CE40E225341C600B70520;
+			remoteInfo = DCXMPP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D85CE41B225341C700B70520 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D85CE417225341C700B70520 /* DCXMPP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		031538AF64DA772D581616C4 /* Pods_Funkstr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Funkstr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C2C3351D04009BDABF9702 /* Pods-Funkstr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Funkstr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Funkstr/Pods-Funkstr.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +93,23 @@
 		D81180A621591A22006ECA1F /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D81180A92159FC64006ECA1F /* ChatsOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsOverviewCell.swift; sourceTree = "<group>"; };
 		D81180DE215A3EA3006ECA1F /* UserChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatViewController.swift; sourceTree = "<group>"; };
+		D85CE40F225341C600B70520 /* DCXMPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCXMPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85CE411225341C700B70520 /* DCXMPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCXMPP.h; sourceTree = "<group>"; };
+		D85CE412225341C700B70520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85CE41C2253421300B70520 /* DCXMPP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCXMPP.m; sourceTree = "<group>"; };
+		D85CE41D2253421300B70520 /* BoshRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoshRequest.m; sourceTree = "<group>"; };
+		D85CE41E2253421300B70520 /* BoshRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoshRequest.h; sourceTree = "<group>"; };
+		D85CE41F2253421400B70520 /* NSData+base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+base64.m"; sourceTree = "<group>"; };
+		D85CE4202253421400B70520 /* DCXMPPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCXMPPUser.h; sourceTree = "<group>"; };
+		D85CE4212253421400B70520 /* NSData+base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+base64.h"; sourceTree = "<group>"; };
+		D85CE4222253421400B70520 /* DCXMPPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCXMPPUser.m; sourceTree = "<group>"; };
+		D85CE42A2253426C00B70520 /* XMLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLKit.h; sourceTree = "<group>"; };
+		D85CE42B2253426D00B70520 /* XMLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLKit.m; sourceTree = "<group>"; };
+		D85CE42C2253426D00B70520 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		D85CE42D2253426D00B70520 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		D85CE4322253824800B70520 /* Funkstr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Funkstr-Bridging-Header.h"; sourceTree = "<group>"; };
+		D85CE4332253824900B70520 /* Sampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sampler.h; sourceTree = "<group>"; };
+		D85CE4342253824900B70520 /* Sampler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sampler.m; sourceTree = "<group>"; };
 		D88EC7B72158C3CA0079E991 /* Funkstr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Funkstr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88EC7BA2158C3CA0079E991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D88EC7BC2158C3CA0079E991 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,10 +137,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D85CE40C225341C600B70520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D88EC7B42158C3CA0079E991 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85CE416225341C700B70520 /* DCXMPP.framework in Frameworks */,
 				7054E3CE63D07A6B71C5415B /* Pods_Funkstr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,10 +185,31 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D85CE410225341C700B70520 /* DCXMPP */ = {
+			isa = PBXGroup;
+			children = (
+				D85CE42D2253426D00B70520 /* GTMNSString+HTML.h */,
+				D85CE42C2253426D00B70520 /* GTMNSString+HTML.m */,
+				D85CE42A2253426C00B70520 /* XMLKit.h */,
+				D85CE42B2253426D00B70520 /* XMLKit.m */,
+				D85CE41E2253421300B70520 /* BoshRequest.h */,
+				D85CE41D2253421300B70520 /* BoshRequest.m */,
+				D85CE41C2253421300B70520 /* DCXMPP.m */,
+				D85CE4202253421400B70520 /* DCXMPPUser.h */,
+				D85CE4222253421400B70520 /* DCXMPPUser.m */,
+				D85CE4212253421400B70520 /* NSData+base64.h */,
+				D85CE41F2253421400B70520 /* NSData+base64.m */,
+				D85CE411225341C700B70520 /* DCXMPP.h */,
+				D85CE412225341C700B70520 /* Info.plist */,
+			);
+			path = DCXMPP;
+			sourceTree = "<group>";
+		};
 		D88EC7AE2158C3CA0079E991 = {
 			isa = PBXGroup;
 			children = (
 				D88EC7B92158C3CA0079E991 /* Funkstr */,
+				D85CE410225341C700B70520 /* DCXMPP */,
 				D88EC7B82158C3CA0079E991 /* Products */,
 				EAE736AB7E2A767808F166EF /* Pods */,
 				64B3871E0AFF6A6C40C4193E /* Frameworks */,
@@ -135,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D88EC7B72158C3CA0079E991 /* Funkstr.app */,
+				D85CE40F225341C600B70520 /* DCXMPP.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +242,9 @@
 				D811809D21590263006ECA1F /* LoginViewController.swift */,
 				D811809F21590A1B006ECA1F /* ChatsViewController.swift */,
 				D81180DE215A3EA3006ECA1F /* UserChatViewController.swift */,
+				D85CE4332253824900B70520 /* Sampler.h */,
+				D85CE4342253824900B70520 /* Sampler.m */,
+				D85CE4322253824800B70520 /* Funkstr-Bridging-Header.h */,
 			);
 			path = Funkstr;
 			sourceTree = "<group>";
@@ -192,7 +281,41 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D85CE40A225341C600B70520 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85CE4282253421400B70520 /* NSData+base64.h in Headers */,
+				D85CE4252253421400B70520 /* BoshRequest.h in Headers */,
+				D85CE413225341C700B70520 /* DCXMPP.h in Headers */,
+				D85CE4272253421400B70520 /* DCXMPPUser.h in Headers */,
+				D85CE4312253426D00B70520 /* GTMNSString+HTML.h in Headers */,
+				D85CE42E2253426D00B70520 /* XMLKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		D85CE40E225341C600B70520 /* DCXMPP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D85CE41A225341C700B70520 /* Build configuration list for PBXNativeTarget "DCXMPP" */;
+			buildPhases = (
+				D85CE40A225341C600B70520 /* Headers */,
+				D85CE40B225341C600B70520 /* Sources */,
+				D85CE40C225341C600B70520 /* Frameworks */,
+				D85CE40D225341C600B70520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCXMPP;
+			productName = DCXMPP;
+			productReference = D85CE40F225341C600B70520 /* DCXMPP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D88EC7B62158C3CA0079E991 /* Funkstr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D88EC7C92158C3CD0079E991 /* Build configuration list for PBXNativeTarget "Funkstr" */;
@@ -203,10 +326,12 @@
 				D88EC7B52158C3CA0079E991 /* Resources */,
 				5F858BD726304D46A03B882A /* [CP] Embed Pods Frameworks */,
 				1C371302C1CD8F88A80DBE7D /* [CP] Copy Pods Resources */,
+				D85CE41B225341C700B70520 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D85CE415225341C700B70520 /* PBXTargetDependency */,
 			);
 			name = Funkstr;
 			productName = Funkstr;
@@ -223,8 +348,13 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Naresh Kumar Devalapally";
 				TargetAttributes = {
+					D85CE40E225341C600B70520 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 					D88EC7B62158C3CA0079E991 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -243,11 +373,19 @@
 			projectRoot = "";
 			targets = (
 				D88EC7B62158C3CA0079E991 /* Funkstr */,
+				D85CE40E225341C600B70520 /* DCXMPP */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D85CE40D225341C600B70520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D88EC7B52158C3CA0079E991 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +471,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D85CE40B225341C600B70520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85CE4262253421400B70520 /* NSData+base64.m in Sources */,
+				D85CE4232253421400B70520 /* DCXMPP.m in Sources */,
+				D85CE4292253421400B70520 /* DCXMPPUser.m in Sources */,
+				D85CE4242253421400B70520 /* BoshRequest.m in Sources */,
+				D85CE42F2253426D00B70520 /* XMLKit.m in Sources */,
+				D85CE4302253426D00B70520 /* GTMNSString+HTML.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D88EC7B32158C3CA0079E991 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +507,7 @@
 				D81180AA2159FC64006ECA1F /* ChatsOverviewCell.swift in Sources */,
 				D81180A721591A22006ECA1F /* DBManager.swift in Sources */,
 				D88EC7BB2158C3CA0079E991 /* AppDelegate.swift in Sources */,
+				D85CE4352253824900B70520 /* Sampler.m in Sources */,
 				D8ACDE1A215A41F9009CCD2F /* TGSystemMessageCellLayout.swift in Sources */,
 				D8ACDE18215A41F9009CCD2F /* TGDeliveryStatusView.swift in Sources */,
 				D811809E21590263006ECA1F /* LoginViewController.swift in Sources */,
@@ -369,6 +521,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D85CE415225341C700B70520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D85CE40E225341C600B70520 /* DCXMPP */;
+			targetProxy = D85CE414225341C700B70520 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D88EC7BE2158C3CA0079E991 /* Main.storyboard */ = {
@@ -390,6 +550,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D85CE418225341C700B70520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QM2NL6XJRW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DCXMPP/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.DCXMPP;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D85CE419225341C700B70520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QM2NL6XJRW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DCXMPP/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.DCXMPP;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D88EC7C72158C3CD0079E991 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +719,7 @@
 			baseConfigurationReference = C5C1ECBD7D9352B2D9D89DA6 /* Pods-Funkstr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM2NL6XJRW;
 				INFOPLIST_FILE = Funkstr/Info.plist;
@@ -515,6 +727,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.Funkstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Funkstr/Funkstr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -525,6 +739,7 @@
 			baseConfigurationReference = 60C2C3351D04009BDABF9702 /* Pods-Funkstr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM2NL6XJRW;
 				INFOPLIST_FILE = Funkstr/Info.plist;
@@ -532,6 +747,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.Funkstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Funkstr/Funkstr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,6 +756,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D85CE41A225341C700B70520 /* Build configuration list for PBXNativeTarget "DCXMPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D85CE418225341C700B70520 /* Debug */,
+				D85CE419225341C700B70520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D88EC7B22158C3CA0079E991 /* Build configuration list for PBXProject "Funkstr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
